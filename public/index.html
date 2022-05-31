@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 
 </head>
 <body onload="onBodyLoad()">
@@ -28,10 +28,12 @@
         </select>
     </div>
 
-    <label for="body">Body request</label>
-    <textarea id="body" rows="6"></textarea>
+    <label for="body-req">Body request</label>
+    <textarea id="body-req" rows="6"></textarea>
 
-    <button id="submit" onclick="onSubClicked()">send</button>
+    <button id="submit" onclick="onSubmit()">send</button>
+
+    <div id="response"></div>
 </main>
 </body>
 </html>
