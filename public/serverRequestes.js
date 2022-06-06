@@ -1,6 +1,7 @@
 
 class Requests {
     constructor() {}
+
     submitGet(url) {
         console.log(url)
         return fetch(`${url}`, {
@@ -12,8 +13,7 @@ class Requests {
         return fetch(`${url}`, {
             method: `${reqTyp}`,
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({})
-
+            body: JSON.stringify({req: bodyReq})
         })
     }
 }

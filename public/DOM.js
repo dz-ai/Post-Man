@@ -11,6 +11,7 @@ export function onBodyLoaded() {
 }
 
 export function onSubmitClicked(Requests) {
+    $response.empty()
     if ($select.val() === 'get') {
         Requests.submitGet($inputUrl.val())
             .then(res => res.json())
@@ -19,8 +20,11 @@ export function onSubmitClicked(Requests) {
                 $response.append(JSON.stringify(results))
             })
     } else {
-        Requests.submitOther($inputUrl.val(), $reqBody, $select.val())
-            .then(res => res.json())
+        Requests.submitOther($inputUrl.val(), $reqBody.val(), $select.val())
+            .then(res => {
+                console.log(res)
+               return  res.json()
+            })
             .then(results => {
                 console.log(results)
                 $response.append(JSON.stringify(results))

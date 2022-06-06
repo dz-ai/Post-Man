@@ -9,15 +9,29 @@ app.get('/submit', (req, res) => {
 })
 
 app.post('/submit', (req, res) => {
-    res.send({res: 'post'})
+    console.log(req.body.req.length)
+    if (req.body.req.length > 0){
+        res.json(req.body)
+    } else {
+        res.send({res: 'post'})
+    }
 })
 
 app.put('/submit', (req, res) => {
-    res.send({res: 'put'})
+    if (req.body.req.length > 0) {
+        res.json(req.body)
+    } else {
+        res.send({res: 'put'})
+
+    }
 })
 
 app.delete('/submit', (req, res) => {
-    res.send({res: 'delete'})
+    if (req.body.req.length > 0) {
+        res.json(req.body)
+    } else {
+        res.send({res: 'delete'})
+    }
 })
 
 app.listen(3330, () => console.log('listen on 3330'))
