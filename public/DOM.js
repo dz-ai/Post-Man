@@ -1,33 +1,33 @@
-let $inputUrl,
-    $select,
-    $reqBody,
-    $response;
+let inputUrl,
+    select,
+    reqBody,
+    response;
 
 export function onBodyLoaded() {
-    $inputUrl = $('input#url')
-    $select = $('select#method')
-    $reqBody = $('#body-req')
-    $response = $('#response')
+    inputUrl = document.querySelector('input#url')
+    select = document.querySelector('select#method')
+    reqBody = document.querySelector('#body-req')
+    response = document.querySelector('#response')
 }
 
 export function onSubmitClicked(Requests) {
-    $response.empty()
-    if ($select.val() === 'get') {
-        Requests.submitGet($inputUrl.val())
+    response.innerHTML = null
+    if (select.value === 'get') {
+        Requests.submitGet(inputUrl.value)
             .then(res => res.json())
             .then(results => {
                 console.log(results)
-                $response.append(JSON.stringify(results))
+                response.append(JSON.stringify(results))
             })
     } else {
-        Requests.submitOther($inputUrl.val(), $reqBody.val(), $select.val())
+        Requests.submitOther(inputUrl.value, reqBody.value, select.value)
             .then(res => {
                 console.log(res)
                return  res.json()
             })
             .then(results => {
                 console.log(results)
-                $response.append(JSON.stringify(results))
+                response.append(JSON.stringify(results))
             })
     }
 

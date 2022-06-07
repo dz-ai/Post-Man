@@ -9,7 +9,7 @@ html {
 body {
     height: 100%;
     margin: 0;
-    background: gray;
+    background: #d7d6d6;
     display: flex;
     flex-direction: column;
 }
@@ -32,4 +32,8 @@ main {
 
 main * {
     margin: 5px;
+}
+
+input#url {
+    width: 520px;
 }
